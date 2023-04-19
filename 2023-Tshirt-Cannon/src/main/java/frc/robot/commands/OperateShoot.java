@@ -25,7 +25,7 @@ public class OperateShoot extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shootUtil.ShootTshirt(RobotContainer.getDriverAButton());
+    shootUtil.OperateCannon(RobotContainer.getDriverAButton());
     shootUtil.MoveTurret(RobotContainer.getDriverRightXboxY());
   }
 

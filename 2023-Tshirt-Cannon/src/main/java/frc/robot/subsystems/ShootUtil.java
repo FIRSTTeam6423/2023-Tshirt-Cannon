@@ -19,16 +19,22 @@ public class ShootUtil extends SubsystemBase{
 
     private Solenoid shooter;
     private Compressor pcmCompressor;
-
+    private boolean shot = false;
     public ShootUtil(){
         shooter = new Solenoid(10, PneumaticsModuleType.CTREPCM, 0);
         pcmCompressor = new Compressor(10, PneumaticsModuleType.CTREPCM);
         pcmCompressor.enableDigital();
         turretMotor = new WPI_TalonSRX(Constants.TURRET_MOTOR);
+        shooter.setPulseDuration(Constants.SHOT_PULSE_DURATION);
     }
 
-    public void ShootTshirt(boolean button){
-        shooter.set(button);
+    public void OperateCannon(boolean button){
+        if(!shot && button) {
+            shot = true;
+            shooter.startPulse();
+        } else if(!button) {
+            shot = false;
+        }
     }
 
     public void MoveTurret(double joystickInput){
