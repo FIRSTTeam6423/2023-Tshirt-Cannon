@@ -30,4 +30,6 @@ public final class Constants {
   public static final int TURRET_MOTOR = 5;
   public static final int TURRET_UPPER_LIMIT = 90; //Dummy Value
   public static final int TURRET_LOWER_LIMIT = 90; //Dummy Value
+
+  public static final double SHOT_PULSE_DURATION = .01; // seconds 
 }
