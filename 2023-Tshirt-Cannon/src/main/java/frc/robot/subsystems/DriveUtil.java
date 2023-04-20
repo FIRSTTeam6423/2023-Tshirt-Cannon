@@ -62,14 +62,12 @@ public class DriveUtil extends SubsystemBase {
         // arcade drive
             if (RobotContainer.driveType.getSelected().equals(RobotContainer.arcade)) {
                 // If we're in ARCADE mode, use arcadeDrive
-
                 differentialDrive.arcadeDrive(RobotContainer.getDriverRightXboxX(),
                         -RobotContainer.getDriverRightXboxY() / 1.5);
             } else if (RobotContainer.driveType.getSelected().equals(RobotContainer.tank)) {
                 // If we're in TANK mode, use tankDrive
                 differentialDrive.tankDrive(-RobotContainer.getDriverLeftXboxY() / 2,
                         RobotContainer.getDriverRightXboxY() / 2);
-
             } else {
                 // If we are in CURVATURE mode, use the curvature mode
                 double rotation = RobotContainer.getDriverLeftXboxX();
@@ -111,10 +109,6 @@ public class DriveUtil extends SubsystemBase {
 
     @Override
     public void periodic() {
-        // This method will be called once per scheduler run
-        /** This is normally where we send important values to the SmartDashboard */
-        //SmartDashboard.putString("Drive Type   ::  ", RobotContainer.driveType.getSelected().toString());
-        //SmartDashboard.putString("Yaw   ::  ", Double.toString(yaw));
     }
 
 }

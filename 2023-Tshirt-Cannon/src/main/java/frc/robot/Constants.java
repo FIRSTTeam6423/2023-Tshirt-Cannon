@@ -4,8 +4,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
-
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -28,8 +26,6 @@ public final class Constants {
   * ShootUtil Constants
    */
   public static final int TURRET_MOTOR = 5;
-  public static final int TURRET_UPPER_LIMIT = 90; //Dummy Value
-  public static final int TURRET_LOWER_LIMIT = 90; //Dummy Value
 
   public static final double SHOT_PULSE_DURATION = .01; // seconds 
 }
