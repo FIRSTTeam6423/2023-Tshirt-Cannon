@@ -37,11 +37,7 @@ public class DriveUtil extends SubsystemBase {
         // Initialize DifferentialDrive controller
         differentialDrive = new DifferentialDrive(leftPrimary, rightPrimary);
 
-        leftPrimary.setInverted(true);
-        // leftPrimaryEncoder.setInverted(true);
-        // rightPrimaryEncoder.setInverted(true);
-        // leftSecondaryEncoder.setInverted(true);
-        // rightSecondaryEncoder.setInverted(true);
+        //leftPrimary.setInverted(true);
     }
 
     

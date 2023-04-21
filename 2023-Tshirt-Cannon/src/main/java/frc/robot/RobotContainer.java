@@ -19,6 +19,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.OperateDrive;
 import frc.robot.subsystems.DriveUtil;
+import frc.robot.subsystems.ShootUtil;
+import frc.robot.commands.OperateShoot;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -33,8 +35,10 @@ public class RobotContainer {
 	// The robot's subsystems and commands are defined here...
 
 	private final DriveUtil driveUtil = new DriveUtil();
+	private final ShootUtil shootUtil = new ShootUtil();
 
 	private final OperateDrive operateDrive = new OperateDrive(driveUtil);
+	private final OperateShoot OperateShoot = new OperateShoot(shootUtil);
 
 	private static XboxController driver;
 	// private static XboxController operator;
@@ -97,6 +101,7 @@ public class RobotContainer {
 
 	private void configureDefaultCommands() {
 		driveUtil.setDefaultCommand(operateDrive);
+		shootUtil.setDefaultCommand(OperateShoot);
 	}
 
 	public static double getDriverLeftXboxX() {
