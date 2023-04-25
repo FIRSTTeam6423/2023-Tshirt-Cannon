@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -17,24 +18,32 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 public class ShootUtil extends SubsystemBase{
     private WPI_TalonSRX turretMotor;
 
+    private DigitalOutput shoottest;
     private Solenoid shooter;
     private Compressor pcmCompressor;
     private boolean shot = false;
+    private int ticks = 0;
     public ShootUtil(){
-        shooter = new Solenoid(10, PneumaticsModuleType.CTREPCM, 0);
-        pcmCompressor = new Compressor(10, PneumaticsModuleType.CTREPCM);
-        pcmCompressor.enableDigital();
-        turretMotor = new WPI_TalonSRX(Constants.TURRET_MOTOR);
-        shooter.setPulseDuration(Constants.SHOT_PULSE_DURATION);
+        shoottest = new DigitalOutput(0);
+        // shooter = new Solenoid(10, PneumaticsModuleType.CTREPCM, 0);
+        // pcmCompressor = new Compressor(10, PneumaticsModuleType.CTREPCM);
+        // pcmCompressor.enableDigital();
+        // turretMotor = new WPI_TalonSRX(Constants.TURRET_MOTOR);
+        // shooter.setPulseDuration(Constants.SHOT_PULSE_DURATION);
     }
 
     public void OperateCannon(boolean button){
-        if(!shot && button) {
-            shot = true;
-            shooter.startPulse();
-        } else if(!button) {
-            shot = false;
+        if ((ticks / 50)>1) {
+            shoottest.pulse(.1);
+            ticks = 0;
         }
+        shoottest.pulse(.1);
+        // if(!shot && button) {
+        //     shot = true;
+        //     shooter.startPulse();
+        // } else if(!button) {
+        //     shot = false;
+        // }
     }
 
     public void MoveTurret(double joystickInput){
