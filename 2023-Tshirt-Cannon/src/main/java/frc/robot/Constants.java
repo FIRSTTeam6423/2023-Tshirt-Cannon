@@ -4,8 +4,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
-
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -17,19 +15,17 @@ import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
 public final class Constants {
   /** 
   * DriveUtil Constants         */
-  public static final int LEFT_PRIMARY = 1;
-  public static final int LEFT_SECONDARY = 2;
-  public static final int RIGHT_PRIMARY = 3;
+  public static final int LEFT_PRIMARY = 1; //front = primary back == secondary
+  public static final int LEFT_SECONDARY = 3; 
+  public static final int RIGHT_PRIMARY = 2;
   public static final int RIGHT_SECONDARY = 4;
 
-  public static final int XBOX_DRIVER = 0;
+  public static final int XBOX_DRIVER = 2;
 
   /**
   * ShootUtil Constants
    */
   public static final int TURRET_MOTOR = 5;
-  public static final int TURRET_UPPER_LIMIT = 90; //Dummy Value
-  public static final int TURRET_LOWER_LIMIT = 90; //Dummy Value
 
   public static final double SHOT_PULSE_DURATION = .01; // seconds 
 }
