@@ -65,9 +65,9 @@ public class RobotContainer {
 		driver = new XboxController(Constants.XBOX_DRIVER);
 
 		driveType = new SendableChooser<>();
-		driveType.setDefaultOption("Arcade", arcade);
+		driveType.setDefaultOption("Curvature", curvature);
 		driveType.addOption("Tank", tank);
-		driveType.addOption("Curvature", curvature);
+		driveType.addOption("Arcade", arcade);
 		SmartDashboard.putData("Drive Type", driveType);
 
 		// Configure the button bindings
